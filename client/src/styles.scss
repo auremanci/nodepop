@@ -4,11 +4,42 @@ p-slider div.range-green span.ui-slider-range {
     background-color: #28a745 !important;
 }
 
-body div.ui-virtualscroller div.ui-virtualscroller-header{
-    background-color:transparent;
-    border: none;
-    padding: 0.571em 1em 0.571em 0;
-    text-align:left;
+body div.ui-virtualscroller{
+    & div.ui-virtualscroller-header{
+        background-color:transparent;
+        border: none;
+        padding: 0.571em 1em 0.571em 0;
+        text-align:left;
+    }
+
+    & div.ui-virtualscroller-content .ui-virtualscroller-list li{
+        border:1px solid #eee;
+        margin-bottom: 20px;
+
+        & div.article-details .p-grid{
+            border:none;
+            padding: 0 0 2.25em 0;
+
+            & div.article-data div.article-title {
+                margin-top: 5px;
+                height: 34px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            & div.article-data div.article-title.text-success {
+                font-size: 28px;
+            }
+
+            & div.article-data div.article-subtitle {
+                margin: 0;
+                height: 40px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+    }
 }
 
 div.ui-virtualscroller div.ui-virtualscroller-content{

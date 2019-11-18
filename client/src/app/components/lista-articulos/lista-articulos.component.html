@@ -1,4 +1,4 @@
-<p-virtualScroller [value]="lazyArticulos" scrollHeight="500px" [itemSize]="150" [rows]="100" [cache]="false" 
+<p-virtualScroller [value]="lazyArticulos" scrollHeight="500px" [itemSize]="295" [rows]="10" [cache]="false" 
         [lazy]="true" (onLazyLoad)="loadArticulosLazy($event)">
     <p-header>
         <div class="ui-g">
@@ -12,17 +12,12 @@
         <div class="article-details">
             <div class="p-grid p-nogutter">
                 <div class="p-col-12">
-                    <img src="" />
+                    <img src="{{article.art_imagenes}}" class="articleIMG"/>
                 </div>
                 <div class="p-col-12 article-data">
+                        <div class="article-title text-success">{{article.art_precio}} €</div>
                     <div class="article-title">{{article.art_nombre}}</div>
                     <div class="article-subtitle">{{article.art_descripcion}}</div>
-
-                    <div class="article-buttons">
-                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-search"></button>
-                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-star"></button>
-                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-cog"></button>
-                    </div>
                 </div>
             </div>
         </div>
