@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+p-slider div.range-green span.ui-slider-range {
+    background-color: #28a745 !important;
+}
+
+body div.ui-virtualscroller div.ui-virtualscroller-header{
+    background-color:transparent;
+    border: none;
+    padding: 0.571em 1em 0.571em 0;
+    text-align:left;
+}
+
+div.ui-virtualscroller div.ui-virtualscroller-content{
+    background-color:transparent;
+    border: none;
+}

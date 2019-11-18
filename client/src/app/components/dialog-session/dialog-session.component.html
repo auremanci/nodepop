@@ -1,0 +1,23 @@
+<p-dialog header="Inicio de sesión" [(visible)]="visibleDialog" [baseZIndex]="999999" [modal]="true" [blockScroll]="true" [dismissableMask]="true" [style]="{'max-width': '95%'}" (onHide)="closeSession()" [focusOnShow]="false" [positionLeft]="10">
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+            <div class="ui-inputgroup">
+                <button pButton type="button" icon="pi pi-user" class="ui-button-success"></button>
+                <input type="text" pInputText placeholder="Usuario">
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-inputgroup">
+                <button pButton type="button" icon="pi pi-lock" class="ui-button-success"></button>
+                <input type="password" pInputText placeholder="Contraseña">
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <button pButton type="button" label="Iniciar sesión" class="ui-button-success"></button>
+        </div>
+        <div class="ui-g-12">
+            <a href="#" (click)="showSidebarCreateUser()">Crear usuario</a>
+        </div>
+    </div>
+</p-dialog>
+

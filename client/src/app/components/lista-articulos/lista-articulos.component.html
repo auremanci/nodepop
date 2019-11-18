@@ -1,0 +1,49 @@
+<p-virtualScroller [value]="lazyArticulos" scrollHeight="500px" [itemSize]="150" [rows]="100" [cache]="false" 
+        [lazy]="true" (onLazyLoad)="loadArticulosLazy($event)">
+    <p-header>
+        <div class="ui-g">
+            <div class="sort-container">
+                <span class="pr-2 text-black-50">Ordenar por: </span>
+                <p-dropdown [options]="listaOrdenar" [(ngModel)]="ordenarPor" (onChange)="listaOrdenarCambio()"></p-dropdown>
+            </div>
+        </div>
+    </p-header>
+    <ng-template let-article pTemplate="item">
+        <div class="article-details">
+            <div class="p-grid p-nogutter">
+                <div class="p-col-12">
+                    <img src="" />
+                </div>
+                <div class="p-col-12 article-data">
+                    <div class="article-title">{{article.art_nombre}}</div>
+                    <div class="article-subtitle">{{article.art_descripcion}}</div>
+
+                    <div class="article-buttons">
+                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-search"></button>
+                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-star"></button>
+                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-cog"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template let-article pTemplate="loadingItem">
+        <div class="article-details">
+            <div class="p-grid p-nogutter">
+                <div class="p-col-12">
+                    <img src="" />
+                </div>
+                <div class="p-col-12 article-data">
+                    <div class="article-title">ARTICULO2</div>
+                    <div class="article-subtitle">Descripción corta2</div>
+
+                    <div class="article-buttons">
+                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-search"></button>
+                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-star"></button>
+                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-cog"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-virtualScroller>

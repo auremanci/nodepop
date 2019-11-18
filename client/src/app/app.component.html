@@ -1,0 +1,8 @@
+<app-nav-bar></app-nav-bar>
+<app-sidebar></app-sidebar>
+<app-filtros></app-filtros>
+<app-dialog-session [visibleDialog]="visibleDialog" (changeDialog)="closeDialog($event)"></app-dialog-session>
+
+<div class="container pl-4 pr-4 pb-4">
+    <app-lista-articulos></app-lista-articulos>
+</div>

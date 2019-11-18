@@ -1,0 +1,52 @@
+<p-sidebar [(visible)]="filtrosSidebar" [baseZIndex]="10000" (onHide)="closeFiltrosSidebar()" [showCloseIcon]="false" [fullScreen]="true">
+    <h3 class="first">Filtros de búsqueda</h3>
+    <div class="ui-fluid">
+        <div class="ui-g">
+            <div class="ui-g-12 ui-md-6 ui-sd-6 pt-3 pb-3">
+                <input #busqueda type="text" pInputText placeholder="Buscar por...">
+            </div>
+            <hr>
+            <div class="ui-g-12 ui-md-6 ui-sd-6 pt-3 pb-3">
+                <h5 class="text-black-50">Categoría:</h5>
+                <p-dropdown #listaCategorias [options]="modeloCategorias" [(ngModel)]="categoria" placeholder="Seleccionar" optionLabel="ca_nombre" [showClear]="true"></p-dropdown>
+            </div>
+            <hr>
+            <div class="ui-g-12 ui-md-6 ui-sd-6 pt-3 pb-3">
+                <h5 class="text-black-50">Precio: {{rangoPrecios[0] + '€ - ' + rangoPrecios[1] + '€'}}</h5>
+                <p-slider [(ngModel)]="rangoPrecios" [range]="true" [max]="precioMAX" [min]="precioMIN" styleClass="range-green"></p-slider>
+            </div>
+            <div #filtroFechas class="ui-g-12 ui-md-6 ui-sd-6 pt-3 pb-3">
+                <h5 class="text-black-50">Publicado hace: </h5>
+                <div class="ui-g-4 ui-md-4 ui-sd-4 text-center" (click)="fechaFiltro = '24horas'">
+                        <h5 #fecha24horas [ngClass]="{
+                            'text-black-50':fechaFiltro != '24horas',
+                            'text-success':fechaFiltro === '24horas'}">
+                            24<br>horas
+                        </h5>
+                </div>
+                <div class="ui-g-4 ui-md-4 ui-sd-4 text-center" (click)="fechaFiltro = '7dias'">
+                        <h5 #fecha7dias [ngClass]="{
+                            'text-black-50':fechaFiltro != '7dias',
+                            'text-success':fechaFiltro === '7dias'}">
+                            7<br>días
+                        </h5>
+                </div>
+                <div class="ui-g-4 ui-md-4 ui-sd-4 text-center" (click)="fechaFiltro = '30dias'">
+                    <h5 #fecha30dias [ngClass]="{
+                        'text-black-50':fechaFiltro != '30dias',
+                        'text-success':fechaFiltro === '30dias'}">
+                        30<br>días
+                    </h5>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-sd-6">
+                <div class="ui-g-6 ui-md-6 ui-sd-6 text-left" (click)="reiniciarFiltros()">
+                    <h5 class="text-success">Reiniciar filtros</h5>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sd-6 text-right" (click)="aplicarFiltros()">
+                    <h5 class="text-success">Aplicar filtros</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-sidebar>
