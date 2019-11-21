@@ -1,48 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+$verde-claro: #34A835;
+$verde-oscuro: #0C6B0D;
+
 
 p-slider div.range-green span.ui-slider-range {
-    background-color: #28a745 !important;
+    background-color: $verde-oscuro!important;
 }
 
-body div.ui-virtualscroller{
-    & div.ui-virtualscroller-header{
-        background-color:transparent;
-        border: none;
-        padding: 0.571em 1em 0.571em 0;
-        text-align:left;
-    }
-
-    & div.ui-virtualscroller-content .ui-virtualscroller-list li{
-        border:1px solid #eee;
-        margin-bottom: 20px;
-
-        & div.article-details .p-grid{
-            border:none;
-            padding: 0 0 2.25em 0;
-
-            & div.article-data div.article-title {
-                margin-top: 5px;
-                height: 34px;
-                text-overflow: ellipsis;
-                overflow: hidden;
-            }
-
-            & div.article-data div.article-title.text-success {
-                font-size: 28px;
-            }
-
-            & div.article-data div.article-subtitle {
-                margin: 0;
-                height: 40px;
-                text-overflow: ellipsis;
-                overflow: hidden;
-            }
-        }
-
-    }
+body .ui-paginator .ui-paginator-pages a.ui-paginator-page.ui-state-active {
+    background-color: $verde-claro!important;
+    color: #ffffff;
 }
 
-div.ui-virtualscroller div.ui-virtualscroller-content{
-    background-color:transparent;
-    border: none;
+body .ui-panel div.ui-panel-titlebar {
+    border: 1px solid $verde-oscuro;
+    padding: 0.571em 1em;
+    background-color: $verde-claro!important;
+    color: #fff!important;
+}
+
+.ui-dropdown {
+    min-width: 50px !important;
+}
+
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight, 
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group.ui-state-highlight{
+    background-color: $verde-claro!important;
+}
+
+body .ui-dropdown:not(.ui-state-disabled).ui-state-focus {
+    border-color: $verde-oscuro!important;
 }

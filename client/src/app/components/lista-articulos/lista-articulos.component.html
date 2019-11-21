@@ -1,44 +1,49 @@
-<p-virtualScroller [value]="lazyArticulos" scrollHeight="500px" [itemSize]="295" [rows]="10" [cache]="false" 
-        [lazy]="true" (onLazyLoad)="loadArticulosLazy($event)">
+<p-dataView [value]="articulos" [paginator]="true" [rows]="10" paginatorPosition="both" layout="grid" [sortField]="sortField" [sortOrder]="sortOrder" [loading]="loading">
     <p-header>
-        <div class="ui-g">
-            <div class="sort-container">
-                <span class="pr-2 text-black-50">Ordenar por: </span>
-                <p-dropdown [options]="listaOrdenar" [(ngModel)]="ordenarPor" (onChange)="listaOrdenarCambio()"></p-dropdown>
+        <div class="ui-helper-clearfix">
+            <div class="ui-g">
+                <div class="ui-g-6 ui-md-4">
+                    <p-dropdown [options]="listaOrdenar" [(ngModel)]="sortKey" placeholder="Ordenar por:" (onChange)="onSortChange($event)" [style]="{'width':'35vw'}"></p-dropdown>
+                </div>
+                <div class="ui-g-4 ui-md-4">
+                    <div style="position:relative">
+                        <button pButton type="button" icon="pi pi-plus" iconPos="left" class="ui-button-raised ui-button-success" label="Añadir" (click)="addNewArticle()"></button>
+                    </div>
+                </div>
+                <div class="ui-g-2 ui-md-4" style="text-align:right">
+                    <button pButton type="button" icon="pi pi-search" class="ui-button-raised ui-button-success" (click)="mostrarFiltrosSidebar()"></button>
+                </div>
             </div>
         </div>
     </p-header>
-    <ng-template let-article pTemplate="item">
-        <div class="article-details">
-            <div class="p-grid p-nogutter">
-                <div class="p-col-12">
-                    <img src="{{article.art_imagenes}}" class="articleIMG"/>
-                </div>
-                <div class="p-col-12 article-data">
-                        <div class="article-title text-success">{{article.art_precio}} €</div>
-                    <div class="article-title">{{article.art_nombre}}</div>
-                    <div class="article-subtitle">{{article.art_descripcion}}</div>
-                </div>
-            </div>
+    <ng-template let-articulo pTemplate="gridItem">
+        <div style="padding:.5em" class="ui-g-12 ui-md-3" (click)="selectArticulo($event, articulo)">
+            <p-panel [header]="articulo.art_nombre" [style]="{'text-align':'center'}">
+                <img src="{{articulo.art_imagenes}}" class="articleIMG">
+                <div class="text-secondary">{{articulo.art_creacion  | date:'yyyy/MM/dd'}}</div>
+                <div class="articulo-detail">{{articulo.art_descripcion}}</div>
+                <hr class="ui-widget-content" style="border-top:0">
+                <div class="articulo-price">{{articulo.art_precio}} €</div>
+            </p-panel>
         </div>
     </ng-template>
-    <ng-template let-article pTemplate="loadingItem">
-        <div class="article-details">
-            <div class="p-grid p-nogutter">
-                <div class="p-col-12">
-                    <img src="" />
-                </div>
-                <div class="p-col-12 article-data">
-                    <div class="article-title">ARTICULO2</div>
-                    <div class="article-subtitle">Descripción corta2</div>
+</p-dataView>
 
-                    <div class="article-buttons">
-                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-search"></button>
-                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-star"></button>
-                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-cog"></button>
-                    </div>
-                </div>
-            </div>
+<p-dialog header="Detalles de artículo" [(visible)]="displayDialog" showEffect="fade" [modal]="true" (onAfterHide)="onDialogHide()" [style]="{width: '100px'}" [blockScroll]="true">
+    <div class="ui-g" *ngIf="articuloSeleccionado">
+        <div class="ui-g-12" style="text-align:center">
+            <img src="{{articuloSeleccionado.art_imagenes}}" class="imgDetails">
         </div>
-    </ng-template>
-</p-virtualScroller>
+        <div class="ui-g-4">Vin: </div>
+        <div class="ui-g-8">{{articuloSeleccionado.art_creacion  | date:'yyyy/MM/dd'}}</div>
+
+        <div class="ui-g-4">Brand: </div>
+        <div class="ui-g-8">{{articuloSeleccionado.art_nombre}}</div>
+
+        <div class="ui-g-4">Year: </div>
+        <div class="ui-g-8">{{articuloSeleccionado.art_descripcion}}</div>
+
+        <div class="ui-g-4">Color: </div>
+        <div class="ui-g-8">{{articuloSeleccionado.art_precio}}</div>
+    </div>
+</p-dialog>

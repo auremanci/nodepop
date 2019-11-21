@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 
-
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
@@ -14,7 +13,8 @@ import { SidebarModule } from 'primeng/sidebar';
 import { InputTextModule } from 'primeng/inputtext';
 import { DialogModule } from 'primeng/dialog';
 import { SliderModule } from 'primeng/slider';
-import {VirtualScrollerModule} from 'primeng/virtualscroller';
+import { DataViewModule } from 'primeng/dataview';
+import {PanelModule} from 'primeng/panel';
 
 
 // Componentes
@@ -61,7 +61,8 @@ import { ArticulosService } from './services/articulos.service';
     DialogModule,
     SliderModule,
     FormsModule,
-    VirtualScrollerModule
+    DataViewModule,
+    PanelModule
   ],
   providers: [
     IndexService,

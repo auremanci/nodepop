@@ -1,26 +1,20 @@
-.article-details > .p-grid {
-    border: 1px solid #b3c2ca;
-    border-radius: 3px;
-    margin: 0.3em;
-    text-align: center;
-    padding: 2em 0 2.25em 0;
-}
-.article-data .article-title {
-    font-weight: 700;
-    font-size: 20px;
-    margin-top: 24px;
-}
-.article-data .article-subtitle {
-    margin: 0.25em 0 2em 0;
-}
-.article-data button {
-    margin-left: 0.5em;
-}
-.article-data button:first-child {
-    margin-left: 0;
+img.articleIMG{
+    max-width: 35vw;
+    max-height: 150px;
 }
 
-img.articleIMG{
-    max-width: 74vw;
-    max-height: 150px;
+img.imgDetails{
+    max-width:90%;
+    max-height: 200px;
+}
+
+.articulo-price {
+    color: green;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.articulo-detail {
+    height: 45px;
+    overflow: hidden;
 }
